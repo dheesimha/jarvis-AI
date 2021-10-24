@@ -4,6 +4,7 @@ import datetime
 import speech_recognition as sr
 import wikipedia
 import webbrowser
+import os
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -80,7 +81,27 @@ if __name__ == "__main__":
 
     # To open youtube
         elif 'open youtube' in query:
-            webbrowser.open("youtube.com")
+            webbrowser.open("https://www.youtube.com")
+    
+    # To open google
+        elif 'open google' in query:
+            webbrowser.open("https://www.google.com")
+
+    # To know the current time 
+        elif 'the time' in query:
+            presentTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"Boss, the time is {presentTime} ")
+            print(presentTime)
+
+        
+    # To open vs code 
+        elif 'open code' in query:
+            codePath = "C:\\Users\\dheem\AppData\\Local\Programs\\Microsoft VS Code\\Code.exe"
+            os.startfile(codePath)
+
+
+
+    
 
 
         
